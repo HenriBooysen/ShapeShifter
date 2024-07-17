@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 269c8e22962c1424a838bb1e07a069cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cubePrefab: {fileID: 7210474625906837267, guid: bc2b53f9a51b01b4a81d46252466ea0f, type: 3}
+  - spherePrefab: {fileID: 8363380648717302781, guid: 1879abfa5cc717b458462f52e5d75100, type: 3}
+  - trianglePrefab: {fileID: 7943181057002691338, guid: ee95e072839950f48af520ee694b330c, type: 3}
+  - starPrefab: {fileID: 2513925166892509880, guid: 22a5856f1cc4e764da3bbf1fa7ed7ec8, type: 3}
+  - monkeyPrefab: {fileID: 5711040750507396890, guid: 14f872a04eeed7c478bef7fa9b2e928b, type: 3}
+  - yellowMaterial: {fileID: 2100000, guid: 455d2cf3d58b9614fb5ab8fd8d651007, type: 2}
+  - blueMaterial: {fileID: 2100000, guid: a3d1d83a66e62be41965ece71c34af05, type: 2}
+  - greenMaterial: {fileID: 2100000, guid: 6324a13d16d46f94d8f3d07e5dd19730, type: 2}
+  - redMaterial: {fileID: 2100000, guid: e1a6b8024e801004a837b2e8c497c85a, type: 2}
+  - blackMaterial: {fileID: 2100000, guid: 1217dae367cdbe34f9f92ddeef8f032d, type: 2}
+  - spawnPosition: {instanceID: 0}
+  - currentShape: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
