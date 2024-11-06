@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PuaseToggle : MonoBehaviour
 {
     public Button PauseButton;
-    public Move PlayEnabled;
     public int Pausevalue = 1;
     public GameObject PauseMenu;
     public GameObject Music;
@@ -41,7 +40,7 @@ public class PuaseToggle : MonoBehaviour
 
     void Pause()
     {
-        PlayEnabled.PlayEnabled = false;
+        Move.PlayEnabled = false;
         Time.timeScale = 0;
         PauseMenu.SetActive(true);
         AudioSource MusicPause = Music.GetComponentInChildren<AudioSource>();
@@ -71,6 +70,6 @@ public class PuaseToggle : MonoBehaviour
         }
 
         Time.timeScale = 1; // Ensure the time scale is exactly 1 at the end
-        PlayEnabled.PlayEnabled = true;
+        Move.PlayEnabled = true;
     }
 }

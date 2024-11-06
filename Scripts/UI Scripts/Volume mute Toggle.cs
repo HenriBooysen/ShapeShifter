@@ -12,7 +12,7 @@ public class VolumemuteToggle : MonoBehaviour
     public GameObject VolumeOn;
     public GameObject VolumeOff;
 
-    private bool isMuted;
+    //private bool isMuted;
 
     // Start is called before the first frame update
     void Start()
@@ -23,17 +23,17 @@ public class VolumemuteToggle : MonoBehaviour
 
     void DontMuteVolume()
     {
-        isMuted = !isMuted;
+        //isMuted = false;
         VolumeOff.SetActive(true);
         VolumeOn.SetActive(false);
-        AudioListener.volume = isMuted ? 0 : 1;
+        AudioListener.volume = 1;
     }
 
     void MuteVolume()
     {
-        isMuted = !isMuted;
+        //isMuted = true;
         VolumeOn.SetActive(true);
         VolumeOff.SetActive(false);
-        AudioListener.volume = isMuted ? 0 : 1;
+        AudioListener.volume = 0;
     }
 }

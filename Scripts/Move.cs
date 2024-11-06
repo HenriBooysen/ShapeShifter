@@ -12,6 +12,8 @@ public class Move : MonoBehaviour
     public bool VerticalEnable = true;
     public int LateralMovement = 0;
     public int VerticalMovement = 0;
+    public bool upmovement;
+    public bool downmovement;
 
     public GameObject LateralAudioSource;
     public GameObject VerticalAudioSource;
@@ -20,7 +22,7 @@ public class Move : MonoBehaviour
     private Vector2 touchDelta;
 
     
-    public bool PlayEnabled = true; // set by Pause Toggle script
+    public static bool PlayEnabled = true; // set by Pause Toggle script
     void Start()
     {
        //VerticalAudioSource = GetComponent<AudioSource>();
@@ -48,6 +50,7 @@ public class Move : MonoBehaviour
 
                         if (touchDelta.x < 0 && LateralMovement < 1)
                         {
+                            LateralAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f,1.2f));
                             LateralAudioSource.GetComponent<AudioSource>().Play();
                             LateralMovement++;
                             PlayerObject.transform.position += new Vector3(-3, 0, 0);                           
@@ -55,6 +58,7 @@ public class Move : MonoBehaviour
 
                         if (touchDelta.x > 0 && LateralMovement > -1)
                         {
+                            LateralAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
                             LateralAudioSource.GetComponent<AudioSource>().Play();
                             LateralMovement--;
                             PlayerObject.transform.position += new Vector3(3, 0, 0);                           
@@ -62,16 +66,24 @@ public class Move : MonoBehaviour
 
                         if (touchDelta.y > 0 && VerticalMovement < 1)
                         {
-                            VerticalAudioSource.GetComponent<AudioSource>().Play();
-                            VerticalMovement++;
-                            PlayerObject.transform.position += new Vector3(0, 3, 0);                            
+                            if (upmovement == true)
+                            {
+                                VerticalAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
+                                VerticalAudioSource.GetComponent<AudioSource>().Play();
+                                VerticalMovement++;
+                                PlayerObject.transform.position += new Vector3(0, 3, 0);
+                            }
                         }
 
-                        if (touchDelta.y < 0 && VerticalMovement > -1)
+                        if (touchDelta.y < 0 && VerticalMovement > -1 && downmovement == true)
                         {
-                            VerticalAudioSource.GetComponent<AudioSource>().Play();
-                            VerticalMovement--;
-                            PlayerObject.transform.position += new Vector3(0, -3, 0);
+                            if (downmovement == true)
+                            {
+                                VerticalAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
+                                VerticalAudioSource.GetComponent<AudioSource>().Play();
+                                VerticalMovement--;
+                                PlayerObject.transform.position += new Vector3(0, -3, 0);
+                            }
                         }
 
                         break;
@@ -87,6 +99,7 @@ public class Move : MonoBehaviour
             {
                 if (LateralMovement < 1)
                 {
+                    LateralAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
                     LateralMovement++;
                     PlayerObject.transform.position += new Vector3(-3, 0, 0);
                     LateralAudioSource.GetComponent<AudioSource>().Play();
@@ -96,6 +109,7 @@ public class Move : MonoBehaviour
             {
                 if (LateralMovement > -1)
                 {
+                    LateralAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
                     LateralMovement--;
                     PlayerObject.transform.position += new Vector3(3, 0, 0);
                     LateralAudioSource.GetComponent<AudioSource>().Play();
@@ -105,22 +119,30 @@ public class Move : MonoBehaviour
             // Handle vertical movement
             if (VerticalEnable)
             {
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && upmovement == true)
                 {
                     if (VerticalMovement < 1)
                     {
-                        VerticalMovement++;
-                        PlayerObject.transform.position += new Vector3(0, 3, 0);
-                        VerticalAudioSource.GetComponent<AudioSource>().Play();
+                        if (upmovement == true)
+                        {
+                            VerticalAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
+                            VerticalMovement++;
+                            PlayerObject.transform.position += new Vector3(0, 3, 0);
+                            VerticalAudioSource.GetComponent<AudioSource>().Play();
+                        }
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow ) && downmovement == true)
                 {
                     if (VerticalMovement > -1)
                     {
-                        VerticalMovement--;
-                        PlayerObject.transform.position += new Vector3(0, -3, 0);
-                        VerticalAudioSource.GetComponent<AudioSource>().Play();
+                        if (downmovement == true)
+                        {
+                            VerticalAudioSource.GetComponent<AudioSource>().pitch = (UnityEngine.Random.Range(0.8f, 1.2f));
+                            VerticalMovement--;
+                            PlayerObject.transform.position += new Vector3(0, -3, 0);
+                            VerticalAudioSource.GetComponent<AudioSource>().Play();
+                        }
                     }
                 }
             }
